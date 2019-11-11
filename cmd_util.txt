@@ -1,0 +1,15 @@
+minikube start --vm-driver=virtualbox
+minikube dashboard
+kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.10
+kubectl expose deployment hello-minikube --type=NodePort --port=8080
+minikube service hello-minikube --url
+
+
+kubectl apply -f rep/.yaml
+
+
+kubectl exec -it wordpress-646f487dcd-c4b4x -- /bin/bash
+kubectl apply -k ./
+
+
+kubectl describe pv
